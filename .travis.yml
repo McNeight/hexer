@@ -1,0 +1,14 @@
+language: csharp
+dotnet: 2.1.802
+mono: none
+os:
+  - linux
+  - osx
+solution: MathM-CI.sln
+script:
+  - dotnet build --configuration Release MathM-CI.sln
+  # - dotnet test
+cache:
+  directories:
+    - artifacts
+    - docs

@@ -25,13 +25,13 @@ namespace hexer
             InitializeComponent();
 
             dtComboBox.Items.AddRange(DataType.GetKnownDataTypes().ToArray());
-            string dts = Program.regKey.GetValue(SEARCH_TYPE_KEY, "int8") as string;
-            dtComboBox.SelectedIndex = dtComboBox.FindString(dts);
+            //string dts = Program.regKey.GetValue(SEARCH_TYPE_KEY, "int8") as string;
+            //dtComboBox.SelectedIndex = dtComboBox.FindString(dts);
         }
 
         private void dtComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (dtComboBox.SelectedIndex != -1) Program.regKey.SetValue(SEARCH_TYPE_KEY, dtComboBox.SelectedItem.ToString());
+            //if (dtComboBox.SelectedIndex != -1) Program.regKey.SetValue(SEARCH_TYPE_KEY, dtComboBox.SelectedItem.ToString());
         }
 
         private void valueTextBox_KeyUp(object sender, KeyEventArgs e)

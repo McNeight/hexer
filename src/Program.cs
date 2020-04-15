@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Win32;
+//using Microsoft.Win32;
 
 namespace hexer
 {
     static class Program
     {
-        public static readonly RegistryKey regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).CreateSubKey("SharpHexer");
+        //public static readonly RegistryKey regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).CreateSubKey("SharpHexer");
 
         /// <summary>
         /// The main entry point for the application.

@@ -1,0 +1,86 @@
+# Notes:
+#   - Minimal appveyor.yml file is an empty file. All sections are optional.
+#   - Indent each level of configuration with 2 spaces. Do not use tabs!
+#   - All section names are case-sensitive.
+#   - Section names should be unique on each level.
+
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+# version format
+version: 1.0.{build}-{branch}
+
+# you can use {branch} name in version format too
+# version: 1.0.{build}-{branch}
+
+# branches to build
+branches:
+  # whitelist
+  only:
+  - master
+
+# Do not build on tags (GitHub only)
+skip_tags: true
+
+# enable patching of *.csproj files
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+image:
+- Visual Studio 2019
+- Visual Studio 2017
+- Visual Studio 2015
+- Ubuntu1804
+- Ubuntu1604
+
+# scripts that are called at very beginning, before repo cloning
+init:
+- cmd: git config --global core.autocrlf input
+
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
+# build Configuration, i.e. Debug, Release, etc.
+configuration: Release
+
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform: Any CPU
+
+before_build:
+- cmd: dotnet restore MathM-CI.sln
+
+build:
+  project: MathM-CI.sln
+  #publish_nuget: true
+  #publish_nuget_symbols: true
+  #include_nuget_references: true
+  # MSBuild verbosity level
+  verbosity: detailed
+
+#---------------------------------#
+#         notifications           #
+#---------------------------------#
+
+notifications:
+
+# Email
+- provider: Email
+  to:
+    - mcneight+appveyor@gmail.com
+  subject: Build {{status}}
+  message: Version {{version}} {{commitId}} from {{branch}} {{status}} {{message}}
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
