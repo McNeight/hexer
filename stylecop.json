@@ -26,8 +26,8 @@
       "allowConsecutiveUsings": true
     },
     "documentationRules": {
-      "companyName": "Neil McNeight",
-      "copyrightText": "Copyright © 2015 PeterTh.\nCopyright © 2020 {companyName}. All rights reserved.\nLicensed under the {licenseName} license. See {licenseFile} file in the project root for\nfull license information.",
+      "companyName": "Random Developers on the Internet",
+      "copyrightText": "Copyright © 2015 Peter Thoman. Copyright © 2020 Neil McNeight.\nAll rights reserved. Licensed under the {licenseName} license.\nSee {licenseFile} file in the project root for full license information.",
       "xmlHeader": true,
       "variables": {
         "licenseName": "GPLv3",
